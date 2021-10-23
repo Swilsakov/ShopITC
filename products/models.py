@@ -11,7 +11,6 @@ class Product(models.Model):
     image = models.ImageField(verbose_name='image', upload_to='product')
     description = models.TextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
-    ip = models.CharField(max_length=50, verbose_name='ip')
 
     def str(self):
         return self.title

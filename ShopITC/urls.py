@@ -21,6 +21,8 @@ from rest_framework.routers import DefaultRouter
 from authentication.views import *
 from products.views import *
 from category.views import *
+from django.conf import settings
+from django.conf.urls.static import static
 router = DefaultRouter()
 
 schema_view = get_schema_view(
@@ -47,3 +49,7 @@ router.register('product', ProductViewSet)
 router.register('category', CategoryViewSet)
 
 urlpatterns += router.urls
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

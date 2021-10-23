@@ -7,28 +7,9 @@ from category.models import Category
 from rest_framework import permissions
 
 
-class CategoryListView(ModelViewSet):
+class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-
-
-class CategoryCreateView(ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    authentication_classes = (TokenAuthentication,)
-    permission_classes = [permissions.IsAdminUser]
-
-
-class CategoryDetailView(ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
-    authentication_classes = (TokenAuthentication,)
     permission_classes = [permissions.IsAdminUser, permissions.IsAuthenticatedOrReadOnly]
-
-
-class CategoryDeleteView(ModelViewSet):
-    queryset = Category.objects.all()
-    serializer_class = CategorySerializer
     authentication_classes = (TokenAuthentication,)
-    permission_classes = [permissions.IsAdminUser]
-    
+

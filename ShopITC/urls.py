@@ -20,6 +20,7 @@ from drf_yasg.views import get_schema_view
 from rest_framework.routers import DefaultRouter
 from authentication.views import *
 from products.views import *
+from category.views import *
 router = DefaultRouter()
 
 schema_view = get_schema_view(
@@ -43,6 +44,6 @@ urlpatterns = [
 
 router.register('authentication', UserViewSet)
 router.register('product', ProductViewSet)
-# router.register('category', CategoryViewSet)
+router.register('category', CategoryViewSet)
 
 urlpatterns += router.urls

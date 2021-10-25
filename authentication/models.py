@@ -7,7 +7,7 @@ class User(AbstractUser):
     age = models.PositiveIntegerField(default=18)
     image = models.ImageField(upload_to='user/profile')
 
-    def str(self):
+    def __str__(self):
         return self.username
 
     class Meta:

@@ -10,7 +10,6 @@ from rest_framework import permissions
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAdminUser, permissions.IsAuthenticatedOrReadOnly]
-    authentication_classes = (TokenAuthentication,)
-
-# Create your views here.
+    # permission_classes = [permissions.IsAdminUser, permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.AllowAny]
+    # authentication_classes = (TokenAuthentication,)

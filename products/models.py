@@ -12,7 +12,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=9, decimal_places=2)
 
-    def str(self):
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):

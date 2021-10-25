@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'allauth',
     'drf_yasg',
+    'corsheaders',
 
 ]
 SITE_ID = 1
@@ -55,6 +56,7 @@ AUTH_USER_MODEL = 'authentication.User'
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -113,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 
@@ -136,8 +138,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+
 CORS_ORIGIN_WHITELIST = [
-    'http://127.0.0.1',
-    'http://localhost',
-    'https://shopITC.ru',
+    "https://localhost:8080",
+    "https://127.0.0.1:8000"
 ]
+
+# CORS_ORIGIN_WHITELIST = [
+#     'http://127.0.0.1',
+#     'http://localhost',
+#     'https://shopITC.ru',
+# ]
